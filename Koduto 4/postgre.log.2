@@ -1,0 +1,47 @@
+2025-09-17 12:40:11 EEST [1010] LOG: starting PostgreSQL 14.2 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 8.5.0 20210514 (Red Hat 8.5.0-3), 64-bit
+2025-09-17 12:40:11 EEST [1010] LOG: listening on IPv4 address "127.0.0.1", port 5432
+2025-09-17 12:40:11 EEST [1010] LOG: listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2025-09-17 12:40:12 EEST [1012] LOG: database system was shut down at 2025-09-17 11:30:05 EEST
+2025-09-17 12:40:12 EEST [1010] LOG: database system is ready to accept connections
+2025-09-17 12:41:05 EEST [1025] LOG: connection received: host=localhost port=50345
+2025-09-17 12:41:05 EEST [1025] LOG: connection authorized: user=admin database=production_db
+2025-09-17 12:42:15 EEST [1028] LOG: connection received: host=localhost port=50348
+2025-09-17 12:42:15 EEST [1028] FATAL: password authentication failed for user "testuser"
+2025-09-17 12:42:15 EEST [1028] DETAIL: Connection matched pg_hba.conf line 95: "host all all 127.0.0.1/32 md5"
+2025-09-17 12:43:00 EEST [1025] LOG: duration: 8.455 ms statement: SELECT * FROM users WHERE id = 123;
+2025-09-17 12:45:22 EEST [1033] ERROR: relation "non_existent_table" does not exist at character 15
+2025-09-17 12:45:22 EEST [1033] STATEMENT: SELECT * FROM non_existent_table;
+2025-09-17 12:46:10 EEST [1035] WARNING: there is no transaction in progress
+2025-09-17 12:48:01 EEST [1015] LOG: checkpoint starting: time
+2025-09-17 12:48:25 EEST [1015] LOG: checkpoint complete: wrote 82 buffers (0.5%); 0 WAL file(s) added, 0 removed, 1 recycled; write=18.334 s, sync=0.012 s, total=18.415 s; sync files=15, longest=0.010 s, average=0.001 s; distance=354 kB, estimate=2345 kB
+2025-09-17 12:50:30 EEST [1040] LOG: duration: 1850.721 ms statement: SELECT p.name, COUNT(o.id) FROM products p JOIN orders o ON p.id = o.product_id GROUP BY p.name ORDER BY COUNT(o.id) DESC;
+2025-09-17 12:51:00 EEST [1042] LOG: duration: 25.102 ms statement: INSERT INTO logs (message) VALUES ('User logged in');
+2025-09-17 12:55:45 EEST [1050] ERROR: duplicate key value violates unique constraint "users_email_key"
+2025-09-17 12:55:45 EEST [1050] DETAIL: Key (email)=(test@example.com) already exists.
+2025-09-17 12:55:45 EEST [1050] STATEMENT: INSERT INTO users (name, email) VALUES ('Test User', 'test@example.com');
+2025-09-17 13:00:00 EEST [1018] LOG: autovacuum launcher started
+2025-09-17 13:05:10 EEST [1060] LOG: connection received: host=192.168.1.10 port=60123
+2025-09-17 13:05:10 EEST [1060] FATAL: no pg_hba.conf entry for host "192.168.1.10", user "app_user", database "analytics", SSL off
+2025-09-17 13:10:15 EEST [1075] LOG: duration: 3012.988 ms statement: SELECT generate_series(1, 10000000);
+2025-09-17 13:15:00 EEST [1080] ERROR: syntax error at or near "FROMM" at character 10
+2025-09-17 13:15:00 EEST [1080] STATEMENT: SELECT id FROMM products WHERE category = 'books';
+2025-09-17 13:20:00 EEST [1015] LOG: checkpoint starting: wal
+2025-09-17 13:20:30 EEST [1015] LOG: checkpoint complete: wrote 512 buffers (3.1%); 1 WAL file(s) added, 0 removed, 2 recycled; write=25.123 s, sync=0.050 s, total=25.221 s; sync files=30, longest=0.015 s, average=0.002 s; distance=1234 kB, estimate=1800 kB
+2025-09-17 13:25:33 EEST [1090] WARNING: unrecognized configuration parameter "log_min_duration"
+2025-09-17 13:25:33 EEST [1090] HINT: Did you mean "log_min_duration_statement"?
+2025-09-17 13:28:14 EEST [1100] LOG: disconnection: session time: 0:47:09.123 user=admin database=production_db host=localhost port=50345
+2025-09-17 13:30:00 EEST [1010] LOG: received smart shutdown request
+2025-09-17 13:30:01 EEST [1010] LOG: background writer is shutting down
+2025-09-17 13:30:01 EEST [1018] LOG: autovacuum launcher shutting down
+2025-09-17 13:30:01 EEST [1013] LOG: shutting down
+2025-09-17 13:30:02 EEST [1010] LOG: database system is shut down
+2025-09-17 13:35:05 EEST [2020] LOG: starting PostgreSQL 14.2 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 8.5.0 20210514 (Red Hat 8.5.0-3), 64-bit
+2025-09-17 13:35:05 EEST [2020] LOG: listening on IPv4 address "127.0.0.1", port 5432
+2025-09-17 13:35:05 EEST [2020] LOG: listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2025-09-17 13:35:06 EEST [2022] LOG: database system was shut down at 2025-09-17 13:30:02 EEST
+2025-09-17 13:35:06 EEST [2020] LOG: database system is ready to accept connections
+2025-09-17 13:36:00 EEST [2030] LOG: connection received: host=localhost port=50400
+2025-09-17 13:36:00 EEST [2030] LOG: connection authorized: user=admin database=production_db
+2025-09-17 13:36:15 EEST [2030] LOG: duration: 450.123 ms statement: SELECT count(*) FROM event_log;
+2025-09-17 13:37:00 EEST [2035] ERROR: permission denied for table secret_data
+2025-09-17 13:37:00 EEST [2035] STATEMENT: SELECT * FROM secret_data;

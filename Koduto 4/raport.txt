@@ -1,0 +1,32 @@
+2025-09-17 12:40:11  LOGIN: starting PostgreSQL 14.2 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 8.5.0 20210514 (Red Hat 8.5.0-3), 64-bit
+2025-09-17 12:40:11  LOGIN: listening on IPv4 address "127.0.0.1", port 5432
+2025-09-17 12:40:11  LOGIN: listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2025-09-17 12:40:12  LOGIN: database system was shut down at 2025-09-17 11:30:05
+2025-09-17 12:40:12  LOGIN: database system is ready to accept connections
+2025-09-17 12:41:05  LOGIN: connection received: host=localhost port=50345
+2025-09-17 12:41:05  LOGIN: connection authorized: user=admin database=production_db
+2025-09-17 12:42:15  LOGIN: connection received: host=localhost port=50348
+2025-09-17 12:43:00  LOGIN: duration: 8.455 ms statement: SELECT * FROM users WHERE id = 123;
+2025-09-17 12:48:01  LOGIN: checkpoint starting: time
+2025-09-17 12:48:25  LOGIN: checkpoint complete: wrote 82 buffers (0.5%); 0 WAL file(s) added, 0 removed, 1 recycled; write=18.334 s, sync=0.012 s, total=18.415 s; sync files=15, longest=0.010 s, average=0.001 s; distance=354 kB, estimate=2345 kB
+2025-09-17 12:50:30  LOGIN: duration: 1850.721 ms statement: SELECT p.name, COUNT(o.id) FROM products p JOIN orders o ON p.id = o.product_id GROUP BY p.name ORDER BY COUNT(o.id) DESC;
+2025-09-17 12:51:00  LOGIN: duration: 25.102 ms statement: INSERT INTO logs (message) VALUES ('User logged in');
+2025-09-17 13:00:00  LOGIN: autovacuum launcher started
+2025-09-17 13:05:10  LOGIN: connection received: host=192.168.1.10 port=60123
+2025-09-17 13:10:15  LOGIN: duration: 3012.988 ms statement: SELECT generate_series(1, 10000000);
+2025-09-17 13:20:00  LOGIN: checkpoint starting: wal
+2025-09-17 13:20:30  LOGIN: checkpoint complete: wrote 512 buffers (3.1%); 1 WAL file(s) added, 0 removed, 2 recycled; write=25.123 s, sync=0.050 s, total=25.221 s; sync files=30, longest=0.015 s, average=0.002 s; distance=1234 kB, estimate=1800 kB
+2025-09-17 13:28:14  LOGIN: disconnection: session time: 0:47:09.123 user=admin database=production_db host=localhost port=50345
+2025-09-17 13:30:00  LOGIN: received smart shutdown request
+2025-09-17 13:30:01  LOGIN: background writer is shutting down
+2025-09-17 13:30:01  LOGIN: autovacuum launcher shutting down
+2025-09-17 13:30:01  LOGIN: shutting down
+2025-09-17 13:30:02  LOGIN: database system is shut down
+2025-09-17 13:35:05  LOGIN: starting PostgreSQL 14.2 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 8.5.0 20210514 (Red Hat 8.5.0-3), 64-bit
+2025-09-17 13:35:05  LOGIN: listening on IPv4 address "127.0.0.1", port 5432
+2025-09-17 13:35:05  LOGIN: listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2025-09-17 13:35:06  LOGIN: database system was shut down at 2025-09-17 13:30:02
+2025-09-17 13:35:06  LOGIN: database system is ready to accept connections
+2025-09-17 13:36:00  LOGIN: connection received: host=localhost port=50400
+2025-09-17 13:36:00  LOGIN: connection authorized: user=admin database=production_db
+2025-09-17 13:36:15  LOGIN: duration: 450.123 ms statement: SELECT count(*) FROM event_log;
