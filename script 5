@@ -30,3 +30,7 @@ else
 fi
 
 echo "------------------------------" >> "$LOG_FILE"
+
+
+* * * * * /home/backup_pets.sh
+
