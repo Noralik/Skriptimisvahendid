@@ -1,0 +1,32 @@
+#!/bin/bash
+# =================================================================
+# PostgreSQL Database Backup Script
+# Author: Jaramir
+# Date: 2025-10-10
+# Description: Automates the backup of the 'pets' database
+# =================================================================
+
+# --- Configuration Variables ---
+DB_NAME="pets"
+DB_USER="postgres"
+BACKUP_DIR="/var/backups/pets_db"
+LOG_FILE="/var/log/pets_backup.log"
+DATE=$(date +"%Y-%m-%d")
+BACKUP_FILE="$BACKUP_DIR/${DB_NAME}_backup_$DATE.sql"
+
+# --- Ensure directories exist ---
+mkdir -p "$BACKUP_DIR"
+mkdir -p "$(dirname "$LOG_FILE")"
+
+# --- Start backup ---
+echo "[$(date)] Starting backup for $DB_NAME" >> "$LOG_FILE"
+
+pg_dump -U "$DB_USER" "$DB_NAME" > "$BACKUP_FILE" 2>> "$LOG_FILE"
+
+if [ $? -eq 0 ]; then
+    echo "[$(date)] Backup successful: $BACKUP_FILE" >> "$LOG_FILE"
+else
+    echo "[$(date)] ERROR: Backup failed" >> "$LOG_FILE"
+fi
+
+echo "------------------------------" >> "$LOG_FILE"
