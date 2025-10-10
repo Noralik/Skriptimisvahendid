@@ -1,0 +1,21 @@
+#!/bin/bash
+# =================================================================
+# Backup Log Analysis Script
+# Author: Sinu Nimi
+# Date: 2025-10-10
+# Description: Summarizes errors and warnings in backup log.
+# =================================================================
+
+LOG_FILE="/var/log/pets_backup.log"
+
+echo "===== Backup Log Summary ====="
+echo "Logfile: $LOG_FILE"
+echo
+
+TOTAL_RUNS=$(grep -c "Starting backup" "$LOG_FILE")
+ERRORS=$(grep -c "ERROR" "$LOG_FILE")
+WARNINGS=$(grep -c "WARNING" "$LOG_FILE")
+
+echo "Total backup runs : $TOTAL_RUNS"
+echo "Errors            : $ERRORS"
+echo "Warnings          : $WARNINGS"
